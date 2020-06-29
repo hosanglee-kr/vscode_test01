@@ -10,6 +10,13 @@
 #include "project_config.h"
 
 
+// Timer for blynking
+BlynkTimer timer;
+
+void blinkLed(){
+    
+}
+
 void setup() {
     Serial.begin(9600);
 
@@ -21,10 +28,10 @@ void setup() {
     
     BLYNK_Setup();
     
+    timer.setInterval(1000L, blinkLed);
 
-    while (Blynk.connect() == false) {
-        
-    }
+    //while (Blynk.connect() == false) {    
+    //}
 }
 
 

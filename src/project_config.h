@@ -1,3 +1,11 @@
+
+
+// github 
+// step 1. stash 
+// step 2. commit
+// step 2. push
+
+
 #include <Arduino.h>
 #include <ESP8266WiFi.h>
 #include <BlynkSimpleEsp8266.h>
@@ -7,7 +15,7 @@
 
 
 /// IP CONFIG ////////////////////////////
-#define WIFI_IP_FIXED    1
+// #define WIFI_IP_FIXED    
 #ifdef WIFI_IP_FIXED
     //byte arduino_mac[] = { 0xDE, 0xED, 0xBA, 0xFE, 0xFE, 0xED };
     IPAddress WIFI_device_ip  (192, 168,   0,  80);
@@ -16,7 +24,7 @@
     IPAddress WIFI_subnet_mask(255, 255, 255,   0);
 #endif
 
-void    WIFI_Config_Set_Fixed_ip(){
+void WIFI_Config_Set_Fixed_ip(){
     #ifdef WIFI_IP_FIXED
         WiFi.config(WIFI_device_ip, WIFI_gateway_ip, WIFI_subnet_mask, WIFI_dns_ip);
     #endif
@@ -29,10 +37,10 @@ enum E_WIFI_CONFIG_MODE {
 };
 
 
-uint8_t g_WIFI_Config_mode = WIFI_CONFIG_MODE_SMARTCONFIG;
+uint8_t g_WIFI_Config_mode = WIFI_CONFIG_MODE_FIXED_CONFIG;
 
-char wifi_ssid[] = "YourNetworkName";
-char wifi_pass[] = "YourPassword"   ;
+char wifi_ssid[] = "2540Home";
+char wifi_pass[] = "@q1932542" ;
 
 void WIFI_Config_Set_SSID(){
     
@@ -64,17 +72,17 @@ void WIFI_Config_Set_SSID(){
 
 /// Blynk config 
 
-char BLYNK_auth[] = "YourAuthToken";
+char BLYNK_auth[] = "CCgUJYHvE1SSZewNleng7o2OE1RbYpAg";
 
 const char* BLYNK_2540_DOMAIN   =  "hosanglee.iptime.org";
 uint16_t    BLYNK_2540_PORT     = 80;
 
 
 void BLYNK_Setup(){   
-    Blynk.config(BLYNK_auth, BLYNK_2540_DOMAIN, BLYNK_2540_PORT);
+    //Blynk.config(BLYNK_auth, BLYNK_2540_DOMAIN, BLYNK_2540_PORT);
     //void config(const char* auth, const char* domain = BLYNK_DEFAULT_DOMAIN, uint16_t    port   = BLYNK_DEFAULT_PORT)
     //void config(const char* auth, IPAddress   ip, uint16_t    port = BLYNK_DEFAULT_PORT)
-    //Blynk.config(BLYNK_auth);
+    Blynk.config(BLYNK_auth);
 }
 
 void BLYNK_Config_Server_Address(){
