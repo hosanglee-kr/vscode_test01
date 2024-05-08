@@ -1,0 +1,23 @@
+{
+	"name": "PlatformIO devcontainer",
+	"build": {
+        "dockerfile": "Dockerfile"
+    },
+	// "image": "hsun1031/devcontainer_platformio:latest",
+	"customizations": {
+		"vscode": {
+            "extensions": [
+                "platformio.platformio-ide"
+            ],
+			"settings": {
+				"platformio-ide.pioHomeServerHttpHost": "0.0.0.0",
+				"platformio-ide.pioHomeServerHttpPort": 8081,
+				"platformio-ide.disablePIOHomeStartup": true
+			}
+		}
+	},
+	"forwardPorts": [
+		8081
+	],
+	"postCreateCommand": "pio upgrade"
+}
