@@ -18,7 +18,7 @@ void blinkLed(){
 }
 
 void setup() {
-    Serial.begin(9600);
+    Serial.begin(115600);
 
     //Blynk.begin(BLYNK_auth, wifi_ssid, wifi_pass);
 
